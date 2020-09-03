@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Bill Detail
+{% endblock %}
+{% block body %}
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <table>
+        <tr>
+            <td>Name</td>
+            <td>Count</td>
+            <td>Price</td>
+        </tr>
+        {% for product,count,price in bill %}
+            <td>{{ product.name }}</td>
+            <td>{{ count }}</td>
+            <td>{{ price }}</td>
+        {% endfor %}
+    </table>
+    <h3>total price:{{ total_price }}</h3>
+    {% if not error_only %}
+        <form method="POST" class="uniForm">
+            {% csrf_token %}
+            <fieldset>
+                {{ form|crispy }}
+            </fieldset>
+            <input type="submit"/>
+        </form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'shop/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Product Detail
+{% endblock %}
+{% block body %}
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="POST" class="uniForm">
+        {% csrf_token %}
+        <fieldset>
+            {{ form|crispy }}
+        </fieldset>
+        <input type="submit"/>
+    </form>
+{% endblock %}
