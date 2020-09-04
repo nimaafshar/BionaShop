@@ -1,1 +1,1 @@
-web: gunicorn myproject.wsgipi
+web: gunicorn Bionashop.wsgipi
