@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # dotenv integration
 # for containerization remove this part
@@ -124,3 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK = 'uni_form'
+
+# for heroku deployment
+django_heroku.settings(locals())
