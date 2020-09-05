@@ -55,10 +55,11 @@ def detail(request, product_id=1):
             return render(request, template_name='shop/detail.html', context={'form': form, 'errors': form.errors})
     else:
         form = BillItemForm()
-        return render(request, template_name='shop/detail.html', context={'form': form})
+        return render(request, template_name='shop/single-product.html', context={'form': form})
 
 
 # def return from bank
 
 def order_status(request):
-    pass
+    # temp
+    return render(request, "shop/check-order.html")

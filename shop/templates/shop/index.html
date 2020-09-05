@@ -1,4 +1,5 @@
 {% extends "shop/base.html" %}
+{% load static %}
 {% block title %}
     خانه
 {% endblock %}
@@ -12,15 +13,15 @@
                             <h1>عنوان محصول</h1>
                             <p>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
                                 توضیحات </p>
-                            <a href="product_list.html" class="btn_1">خرید</a>
+                            <a href="{% url "shop:detail" 1 %}" class="btn_1">خرید</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="banner_img">
-            <img src="img/banner.png" alt="#" class="img-fluid">
-            <img src="img/banner_pattern.png " alt="#" class="pattern_img img-fluid">
+            <img src="{% static "shop/img/banner.png" %}" alt=" #" class="img-fluid">
+            <img src="{% static "shop/img/banner_pattern.png" %}" alt="#" class="pattern_img img-fluid">
         </div>
     </section>
 
@@ -36,7 +37,7 @@
                     <div class="client_review_slider owl-carousel">
                         <div class="single_client_review">
                             <div class="client_img">
-                                <img src="img/client.png" alt="#">
+                                <img src="{% static "shop/img/client.png" %}" alt="#">
                             </div>
                             <p>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
                                 توضیحات</p>
@@ -44,7 +45,7 @@
                         </div>
                         <div class="single_client_review">
                             <div class="client_img">
-                                <img src="img/client_1.png" alt="#">
+                                <img src="{% static "shop/img/client_1.png" %}" alt="#">
                             </div>
                             <p>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
                                 توضیحات</p>
@@ -52,7 +53,7 @@
                         </div>
                         <div class="single_client_review">
                             <div class="client_img">
-                                <img src="img/client_2.png" alt="#">
+                                <img src="{% static "shop/img/client_2.png" %}" alt="#">
                             </div>
                             <p>توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات توضیحات
                                 توضیحات</p>
