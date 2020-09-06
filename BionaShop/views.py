@@ -18,3 +18,13 @@ def about(request):
     :return: rendering template of about us from template folder
     """
     return render(request, "shop/about.html")
+
+
+def frequently_asked_questions(request):
+    """
+
+        :param request:
+        :return: rendering template of FQQ from template folder
+        """
+    return render(request,"shop/about.html")
+

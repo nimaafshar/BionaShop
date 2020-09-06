@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect
 from shop.forms import BillItemForm, BillForm
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from shop.models import Product
 
 
@@ -15,7 +15,7 @@ def show_bill(request):
             except Exception as e:
                 return render(request, 'shop/bill.html', context={
                     'errors': [
-                        'no items specified we cant show bill.'
+                        'صورتحساب وجود ندارد'
                     ],
                     'error_only': True
                 })
@@ -27,16 +27,17 @@ def show_bill(request):
                 ]
                 total_price = product.price * count
                 form = BillForm()
-                return render(request, 'shop/bill.html', context={
+                return render(request, 'shop/checkout-page.html', context={
                     'form': form,
                     'bill': bill,
-                    'total_price': total_price
+                    'total_price': total_price,
+                    'count': count
                 })
 
         else:
             return render(request, 'shop/bill.html', context={
                 'errors': [
-                    'no items specified we cant show bill.'
+                    'صورتحساب وجود ندارد'
                 ],
                 'error_only': True
             })

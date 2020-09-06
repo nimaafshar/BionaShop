@@ -21,21 +21,23 @@
                     </div>
 
                     <div class="single_product_text text-center">
-                        <div class="card_area">
+                        <form method="get" enctype="multipart/form-data" action="{% url "shop:bill" %}"
+                              class="card_area">
                             <div class="product_count_area">
                                 <p>تعداد</p>
                                 <div class="product_count d-inline-block">
                                     <span class="product_count_item inumber-decrement"> <i class="ti-minus"></i></span>
-                                        <input class="product_count_item input-number"  type="text" value="1" min="0"
-                                               max="10">
+                                    <input name="count" class="" type="text" value="1"
+                                           min="0"
+                                           max="30">
                                     <span class="product_count_item number-increment"> <i class="ti-plus"></i></span>
                                 </div>
                                 <p>قیمت</p>
                             </div>
                             <div class="add_to_cart">
-                                <a href="#" class="btn_3">پرداخت</a>
+                                <button type="submit" class="btn_3">پرداخت</button>
                             </div>
-                        </div>
+                        </form>
 
                     </div>
                 </div>

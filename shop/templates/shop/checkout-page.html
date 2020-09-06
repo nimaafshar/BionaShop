@@ -1,7 +1,7 @@
 {% extends "shop/base.html" %}
 
 {% block title %}
-صورت‌‌حساب
+    صورت‌‌حساب
 {% endblock %}
 {% block body %}
     <div class="container" style="background-color:#f6f6f6;">
@@ -26,20 +26,16 @@
                                 <span>محصول</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
-                                ۱۰,۰۰۰,۰۰۰
-                                <span class="middle">x ۲</span>
-                                <span class="last">اسم محصول</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                ۱۰,۰۰۰,۰۰۰
-                                <span class="middle">x ۲</span>
-                                <span class="last">اسم محصول</span>
-                            </a>
-                        </li>
+                        {% for product,count,price in bill %}
+
+                            <li>
+                                <a href="#">
+                                    {{ price }}
+                                    <span class="middle">x {{ count }}</span>
+                                    <span class="last">{{ product.name }}</span>
+                                </a>
+                            </li>
+                        {% endfor %}
 
                     </ul>
                     <br/><br/> <br/><br/>
@@ -48,7 +44,7 @@
 
                     <ul class="list list_2">
                         <li>
-                            <a href="#">۲۰,۰۰۰,۰۰۰
+                            <a href="#">{{ total_price }}
                                 <span>مجموع</span>
                             </a>
                         </li>
@@ -65,7 +61,7 @@
                 <div class="whole-wrap single_product_text text-right">
                     <div class="container box_1170">
                         <div class="section-top-border">
-                            <form action="#">
+                            <form method="post">
                                 <label>نام</label>
                                 <div class="mt-10">
                                     <input type="text" name="first_name" placeholder="نام"
@@ -92,10 +88,12 @@
                                 </div>
                                 <label>آدرس</label>
                                 <div class="mt-10">
-                                    <input type="email" name="address" placeholder="آدرس"
+                                    <textarea name="address" placeholder="آدرس"
                                            onfocus="this.placeholder = ''" onblur="this.placeholder = 'آدرس'" required
-                                           class="single-input">
+                                              class="single-input"> </textarea>
                                 </div>
+                                {# todo:change this #}
+                                <input type="hidden" value="{{ count }}" name="count">
 
                             </form>
                         </div>
